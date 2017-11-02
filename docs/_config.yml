@@ -1,0 +1,8 @@
+title: Adaptive Array Processing
+description: Adaptive Array Processing including LMS, and LS algorithms
+#baseurl: /AdaptiveArrayProcessing
+baseurl: 
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:name
