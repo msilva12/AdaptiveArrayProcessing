@@ -2,7 +2,6 @@
 layout: default
 title: Conventional Beamformer
 ---
-<div class="content">
     <h1>Conventional Beamformer</h1>
     <!--introduction-->
     <!--/introduction-->
@@ -10,76 +9,46 @@ title: Conventional Beamformer
     <div>
         <ul>
             <li>
+                <a href="#1">Background</a>
+            </li>
+            <li>
+                <a href="#2">Simulation Parameters</a>
+            </li>
+            <li>
                 <a href="#3">Signal + Noise Only</a>
             </li>
             <li>
-                <a href="#8">Signal + Interference + Noise</a>
+                <a href="#4">Simulation</a>
             </li>
             <li>
-                <a href="#13">References</a>
+                <a href="#5">Signal + Interference + Noise</a>
+            </li>
+            <li>
+                <a href="#6">Simulation</a>
+            </li>
+            <li>
+                <a href="#7">References</a>
             </li>
         </ul>
     </div>
-    <p>
-        <h3>Array and Source Parameters</h3>
-    </p>
-    <div>
-        <ul>
-            <li>Number of array elements:
-                <img src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_eq16236259421782746140.png" alt="$$L=16$" style="width:43px;height:11px;">
-            </li>
-            <li>Element spacing:
-                <img src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_eq06691360376620970711.png" alt="$$d=\frac{\lambda}{2}m$"
-                    style="width:51px;height:30px;">
-            </li>
-            <li>Propagation speed:
-                <img src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_eq13506832862888706663.png" alt="$$c=3*10^8\frac{m}{s}$"
-                    style="width:82px;height:27px;">
-            </li>
-            <li>Signal to Noise Ratio:
-                <img src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_eq18294479859807695878.png" alt="$$SNR=[3, 10]dB$" style="width:109px;height:15px;">
-            </li>
-            <li>Signal power:
-                <img src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_eq04577558661233008409.png" alt="$$ps=1$" style="width:41px;height:13px;">
-            </li>
-            <li>Noise power:
-                <img src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_eq13393966298945296718.png" alt="$$\sigma_n^2=[0.5, 0.1]$" style="width:85px;height:17px;">
-            </li>
-            <li>Number of samples:
-                <img src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_eq01435062882172541283.png" alt="$$N=[10,100]$" style="width:82px;height:15px;">
-            </li>
-            <li>Source direction:
-                <img src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_eq00730488801898778135.png" alt="$$\theta_k=30^o$" style="width:52px;height:13px;">
-            </li>
-            <li>Steering Vector in the Look direction:
-                <img src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_eq10124848064666402770.png" alt="$$\textbf{S}_0=[exp({j2{\pi}f_0{\tau}_l}),\ldots,exp({j2{\pi}f_0{\tau}_L})]^T$"
-                    style="width:247px;height:17px;">
-            </li>
-        </ul>
-    </div>
-    <p>Where
-        <img src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_eq10414931460268575496.png" alt="$$\tau_l(\theta_k)=\frac{d}{c}(l-1)sin(\theta_k)$"
-            style="width:151px;height:30px;">
-    </p>
+    <h2 id="1">Background</h2>
     <p>
         <h3>Conventional Beamformer</h3>
     </p>
     <p>Weight vector:
-        <img src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_eq15242524812993918624.png" alt="$$\textbf{w}_c=\frac{1}{L}\textbf{S}_0$"
-            style="width:65px;height:30px;">
+        <img src="{{ site.baseurl }}/assets/images/convbeam/convbeam_eq15242524812993918624.png" alt="$$\textbf{w}_c=\frac{1}{L}\textbf{S}_0$" style="width:65px;height:30px;">
     </p>
     <p>
-        <h3>Correlation Matrice</h3>
+        <h3>Correlation Matrix</h3>
     </p>
     <p>
-        <img src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_eq09028154247653529355.png" alt="$$R = \langle\textbf{x}(t)\textbf{x}(t)^H\rangle$"
-            style="width:102px;height:17px;">
+        <img src="{{ site.baseurl }}/assets/images/convbeam/convbeam_eq09028154247653529355.png" alt="$$R = \langle\textbf{x}(t)\textbf{x}(t)^H\rangle$" style="width:102px;height:17px;">
     </p>
     <p>
         <h3>Array output</h3>
     </p>
     <p>
-        <img src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_eq15409525562932962324.png" alt="$$y(t)=\textbf{w}_c^H\textbf{x}(t)$" style="width:90px;height:17px;">
+        <img src="{{ site.baseurl }}/assets/images/convbeam/convbeam_eq15409525562932962324.png" alt="$$y(t)=\textbf{w}_c^H\textbf{x}(t)$" style="width:91px;height:17px;">
     </p>
     <p>
         <h3>Simulation Algorithm</h3>
@@ -93,95 +62,136 @@ title: Conventional Beamformer
             <li>Calculate array Gain</li>
         </ol>
     </div>
+    <h2 id="2">Simulation Parameters</h2>
+    <div>
+        <ul>
+            <li>Number of array elements:
+                <img src="{{ site.baseurl }}/assets/images/convbeam/convbeam_eq16236259421782746140.png" alt="$$L=16$" style="width:44px;height:11px;">
+            </li>
+            <li>Element spacing:
+                <img src="{{ site.baseurl }}/assets/images/convbeam/convbeam_eq06691360376620970711.png" alt="$$d=\frac{\lambda}{2}m$" style="width:52px;height:30px;">
+            </li>
+            <li>Propagation speed:
+                <img src="{{ site.baseurl }}/assets/images/convbeam/convbeam_eq13506832862888706663.png" alt="$$c=3*10^8\frac{m}{s}$" style="width:82px;height:27px;">
+            </li>
+            <li>Signal to Noise Ratio:
+                <img src="{{ site.baseurl }}/assets/images/convbeam/convbeam_eq18294479859807695878.png" alt="$$SNR=[3, 10]dB$" style="width:109px;height:15px;">
+            </li>
+            <li>Signal power:
+                <img src="{{ site.baseurl }}/assets/images/convbeam/convbeam_eq04577558661233008409.png" alt="$$ps=1$" style="width:41px;height:13px;">
+            </li>
+            <li>Noise power:
+                <img src="{{ site.baseurl }}/assets/images/convbeam/convbeam_eq13393966298945296718.png" alt="$$\sigma_n^2=[0.5, 0.1]$" style="width:86px;height:17px;">
+            </li>
+            <li>Number of samples:
+                <img src="{{ site.baseurl }}/assets/images/convbeam/convbeam_eq01435062882172541283.png" alt="$$N=[10,100]$" style="width:83px;height:15px;">
+            </li>
+            <li>Source direction:
+                <img src="{{ site.baseurl }}/assets/images/convbeam/convbeam_eq00730488801898778135.png" alt="$$\theta_k=30^o$" style="width:52px;height:13px;">
+            </li>
+            <li>Steering Vector in the Look direction:
+                <img src="{{ site.baseurl }}/assets/images/convbeam/convbeam_eq10124848064666402770.png" alt="$$\textbf{S}_0=[exp({j2{\pi}f_0{\tau}_l}),\ldots,exp({j2{\pi}f_0{\tau}_L})]^T$"
+                    style="width:247px;height:17px;">
+            </li>
+        </ul>
+    </div>
+    <p>Where
+        <img src="{{ site.baseurl }}/assets/images/convbeam/convbeam_eq10414931460268575496.png" alt="$$\tau_l(\theta_k)=\frac{d}{c}(l-1)sin(\theta_k)$" style="width:151px;height:30px;">
+    </p>
     <h2 id="3">Signal + Noise Only</h2>
     <p>
         <h3>Array input</h3>
     </p>
     <p>
-        <img src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_eq03533427787970466775.png" alt="$$\textbf{x}(t)=exp({j2{\pi}f_0t})\textbf{S}_0+\textbf{n}(t)$$"
-            style="width:178px;height:15px;">
+        <img src="{{ site.baseurl }}/assets/images/convbeam/convbeam_eq03533427787970466775.png" alt="$$\textbf{x}(t)=exp({j2{\pi}f_0t})\textbf{S}_0+\textbf{n}(t)$$" style="width:179px;height:15px;">
     </p>
     <p>
         <h3>Correlation Matrix</h3>
     </p>
     <p>
-        <img src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_eq09734681326966372906.png" alt="$$R=ps*\textbf{S}_0\textbf{S}_0^H+{\sigma}_n^2{I}$$"
-            style="width:134px;height:17px;">
+        <img src="{{ site.baseurl }}/assets/images/convbeam/convbeam_eq09734681326966372906.png" alt="$$R=ps*\textbf{S}_0\textbf{S}_0^H+{\sigma}_n^2{I}$$" style="width:134px;height:17px;">
     </p>
     <p>
         <h3>Signal to Noise Ratio</h3>
     </p>
     <p>
-        <img src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_eq18003781275239221044.png" alt="$$SNR=\frac{ps}{\sigma_n^2}L$$" style="width:82px;height:30px;">
+        <img src="{{ site.baseurl }}/assets/images/convbeam/convbeam_eq18003781275239221044.png" alt="$$SNR=\frac{ps}{\sigma_n^2}L$$" style="width:82px;height:30px;">
     </p>
     <p>
         <h3>Array Gain</h3>
     </p>
     <p>
-        <img src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_eq10773369685920215500.png" alt="$$G=L$$" style="width:40px;height:11px;">
+        <img src="{{ site.baseurl }}/assets/images/convbeam/convbeam_eq10773369685920215500.png" alt="$$G=L$$" style="width:41px;height:11px;">
     </p>
-    <p>
-        <h3>Simulations</h3>
-    </p>
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_01.png" style="width:560px;height:420px;" alt="">
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_02.png" style="width:560px;height:420px;" alt="">
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_03.png" style="width:560px;height:420px;" alt="">
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_04.png" style="width:560px;height:420px;" alt="">
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_05.png" style="width:560px;height:420px;" alt="">
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_06.png" style="width:560px;height:420px;" alt="">
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_07.png" style="width:560px;height:420px;" alt="">
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_08.png" style="width:560px;height:420px;" alt="">
-    <h2 id="8">Signal + Interference + Noise</h2>
+    <h2 id="4">Simulation</h2>
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_01.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_02.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_03.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_04.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_05.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_06.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_07.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_08.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_09.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_10.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_11.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_12.png" style="width:560px;height:420px;" alt="">
+    <h2 id="5">Signal + Interference + Noise</h2>
     <p>
         <h3>Array input</h3>
     </p>
     <p>
-        <img src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_eq10660414394354685550.png" alt="$$\textbf{x}(t)=exp({j2{\pi}f_0t})\textbf{S}_0+pI*exp({j2{\pi}f_0t})\textbf{S}_I+\textbf{n}(t)$$"
-            style="width:316px;height:15px;">
+        <img src="{{ site.baseurl }}/assets/images/convbeam/convbeam_eq10660414394354685550.png" alt="$$\textbf{x}(t)=exp({j2{\pi}f_0t})\textbf{S}_0+pI*exp({j2{\pi}f_0t})\textbf{S}_I+\textbf{n}(t)$$"
+            style="width:317px;height:15px;">
     </p>
     <p>
         <h3>Correlation Matrix</h3>
     </p>
     <p>
-        <img src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_eq12597733121369761357.png" alt="$$R=ps*\textbf{S}_0\textbf{S}_0^H+pI*\textbf{S}_I\textbf{S}_I^H+{\sigma}_n^2{I}$$"
-            style="width:215px;height:17px;">
+        <img src="{{ site.baseurl }}/assets/images/convbeam/convbeam_eq12597733121369761357.png" alt="$$R=ps*\textbf{S}_0\textbf{S}_0^H+pI*\textbf{S}_I\textbf{S}_I^H+{\sigma}_n^2{I}$$"
+            style="width:216px;height:17px;">
     </p>
     <p>
         <h3>Signal to Noise Ratio</h3>
     </p>
     <p>
-        <img src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_eq01848138369901856971.png" alt="$$SNR=ps/(pI(1-\rho)+\frac{\sigma_n^2}{L})$$" style="width:181px;height:33px;">
+        <img src="{{ site.baseurl }}/assets/images/convbeam/convbeam_eq01848138369901856971.png" alt="$$SNR=ps/(pI(1-\rho)+\frac{\sigma_n^2}{L})$$" style="width:181px;height:33px;">
     </p>
     <p>
         <h3>Array Gain</h3>
     </p>
     <p>
-        <img src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_eq02664111333915717571.png" alt="$$G=\frac{SNR_{out}}{SNR_{in}}$$" style="width:82px;height:33px;">
+        <img src="{{ site.baseurl }}/assets/images/convbeam/convbeam_eq02664111333915717571.png" alt="$$G=\frac{SNR_{out}}{SNR_{in}}$$" style="width:82px;height:33px;">
     </p>
-    <p>
-        <h3>Simulations</h3>
-    </p>
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_09.png" style="width:560px;height:420px;" alt="">
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_10.png" style="width:560px;height:420px;" alt="">
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_11.png" style="width:560px;height:420px;" alt="">
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_12.png" style="width:560px;height:420px;" alt="">
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_13.png" style="width:560px;height:420px;" alt="">
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_14.png" style="width:560px;height:420px;" alt="">
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_15.png" style="width:560px;height:420px;" alt="">
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_16.png" style="width:560px;height:420px;" alt="">
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_17.png" style="width:560px;height:420px;" alt="">
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_18.png" style="width:560px;height:420px;" alt="">
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_19.png" style="width:560px;height:420px;" alt="">
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_20.png" style="width:560px;height:420px;" alt="">
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_21.png" style="width:560px;height:420px;" alt="">
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_22.png" style="width:560px;height:420px;" alt="">
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_23.png" style="width:560px;height:420px;" alt="">
-    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/Conventional_Beamformer_24.png" style="width:560px;height:420px;" alt="">
-    <h2 id="13">References</h2>
+    <h2 id="6">Simulation</h2>
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_13.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_14.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_15.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_16.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_17.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_18.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_19.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_20.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_21.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_22.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_23.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_24.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_25.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_26.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_27.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_28.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_29.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_30.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_31.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_32.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_33.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_34.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_35.png" style="width:560px;height:420px;" alt="">
+    <img vspace="5" hspace="5" src="{{ site.baseurl }}/assets/images/convbeam/convbeam_36.png" style="width:560px;height:420px;" alt="">
+    <h2 id="7">References</h2>
     <p>[1] L. Godara, Smart antennas. Boca Raton: CRC Press, 2004.</p>
     <p class="footer">
         <br>
         <a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017a</a>
         <br>
     </p>
-</div>
