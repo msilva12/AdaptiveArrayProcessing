@@ -11,8 +11,8 @@ for L = 16 % Number of elements
                         psi_i = pi*sind(th_i);
                         SI = exp(-1j*psi_i*((1:L)-1)');
                         S0 = exp(-1j*psi_s*((1:L)-1)');
-                        wc = (1/L)*S0; % convention beamformer in the look direction
-                        
+                        w = ((eye(L)/SNR)^-1)*S0/(S0'*((eye(L)/SNR)^-1)*S0); % convention beamformer in the look direction
+
                         for N = 1:N
                             [~, S, n] = ArrayMeasurementPlusNoiseGenerator(SNR_dB,psi_s,L); % Generate array measurements
                             [~, I, ~] = ArrayMeasurementPlusNoiseGenerator(SNR_dB,psi_i,L); % Generate array measurements
@@ -22,7 +22,7 @@ for L = 16 % Number of elements
                             Rs(:,:,N) = S*S'; % Signal Correlation matrix for sample N
                             RI(:,:,N) = I*I'; % Interference Correlation matrix for sample N
                             Rn(:,:,N) = n*n'; % Noise Correlation matrix for sample N
-                            y(N) = wc'*x; % Array output
+                            y(N) = w'*x; % Array output
                         end
                         
                         SI = mean(SI,3);
@@ -34,22 +34,28 @@ for L = 16 % Number of elements
                         
                         rho = 1-((S0'*SI)*(SI'*S0))/(L^2);
                         
-                        PS = real(wc'*Rs*wc); % Signal Power
-                        PI = real(wc'*RI*wc); % Interference Power
-                        Pn = real(wc'*Rn*wc); % Noise Power
+                        PS_cal = real(w'*S0*S0'*w);
+                        PS = real(w'*Rs*w); % Signal Power
+                        
+                        PI_cal = real((0.1)^2*w'*SI*SI'*w);
+                        PI = real(w'*RI*w); % Interference Power
+                        
+                        Pn_cal = real((1/SNR)*w'*w);
+                        Pn = real(w'*Rn*w); % Noise Power
+                        
+                        P_cal = PS_cal + Pn_cal + PI_cal;
+                        P = mean(abs(y).^2); % Power through array output
+                        P = real(w'*R*w); % Power through correlation matrix
                         
                         PN = PI+Pn;
-                        
-                        P = mean(abs(y).^2); % Power through array output
-                        P = real(wc'*R*wc); % Power through correlation matrix
                         
                         SINRin_calc  = 1/((pI^2)*(1-rho)+(1/SNR)); % Signal to Interference + Noise Ratio
                         SINRout_calc = 1/((pI^2)*(1-rho)+(1/SNR)/L);
                         
-                        SINRout = PS/(PI+Pn); % Absolute
+                        SINRout = PS/PN; % Absolute
                         SINRout_dB = 10*log10(SINRout); % [dB] Decibel
                         
-                        Gcalc = S0'*((eye(L)/SNR)^-1)*S0;
+                        Gcalc = ((pI^2)*L/(1/SNR))*(1+(1/SNR)/pI^2)*(rho+(1/SNR)/(pI^2*L))/(1+(1/SNR)/(pI^2*L));
                         Gestm = (pI^2+1/SNR)/PN;
                         
                         tit1 = {'Signal + Interference + Noise Correlation Matrix';['N=' num2str(N) ', SNR=' num2str(SNR_dB) ' | pI= ' num2str(pI) ' | Calc. Gain= ' num2str(Gcalc) ' | Est. Gain= ' num2str(Gestm)]};
